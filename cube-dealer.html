@@ -6,40 +6,65 @@
     </head>
     <style type="text/css" media="screen">
     .card{
-        position: absolute
+        position: absolute;
+        background-color: lightgray;
+        width: 10vw;
+        height: 21vh;
+        border-radius: 0.5vw;
+    }
+    .card p{
+        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        color: white;
+        font-size: 20px;
+        font-weight: bold;
+        position: absolute;
+        margin:0;
+        top: 50%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%);
     }
     .A{
-        top: 40vh;
+        top: 26vh;
+    }
+    .Aon{
+        background-color: hsl(199,60%,49%);
     }
     .B{
-        top: 60vh;
+        top: 50vh;
+    }
+    .Bon{
+        background-color: hsl(356,60%,49%);
     }
     .C{
-        top: 80vh;
+        top: 74vh;
+    }
+    .Con{
+        background-color: hsl(52,100%,49%);
     }
     .col-1{
-        left: 7vw;
+        left: 2vw;
     }
     .col-2{
-        left: 19vw;
+        left: 14vw;
     }
     .col-3{
-        left: 31vw;
+        left: 26vw;
     }
     .col-4{
-        left: 43vw;
+        left: 38vw;
     }
     .col-5{
-        left: 55vw;
+        left: 50vw;
     }
     .col-6{
-        left: 67vw;
+        left: 62vw;
     }
     .col-7{
-        left: 79vw;
+        left: 74vw;
     }
     .col-8{
-        left: 91vw;
+        left: 86vw;
     }
     </style>
     <body>
@@ -53,79 +78,100 @@
         </div>
     <div class="cards">
             <div class="card A col-1" id="A1">
-                A1
+                <p>A1</p>
             </div>
             <div class="card A col-2" id="A2">
-                A2
+                <p>A2</p>
             </div>
             <div class="card A col-3" id="A3">
-                A3
+                <p>A3</p>
             </div>
             <div class="card A col-4" id="A4">
-                A4
+                <p>A4</p>
             </div>
             <div class="card A col-5" id="A5">
-                A5
+                <p>A5</p>
             </div>  
             <div class="card A col-6" id="A6">
-                A6
+                <p>A6</p>
             </div> 
             <div class="card A col-7" id="A7">
-                A7
+                <p>A7</p>
             </div> 
             <div class="card A col-8" id="A8">
-                A8
+                <p>A8</p>
             </div> 
             <div class="card B col-1" id="B1">
-                B1
+                <p>B1</p>
             </div>
             <div class="card B col-2" id="B2">
-                B2
+                <p>B2</p>
             </div>
             <div class="card B col-3" id="B3">
-                B3
+                <p>B3</p>
             </div>
             <div class="card B col-4" id="B4">
-                B4
+                <p>B4</p>
             </div>
             <div class="card B col-5" id="B5">
-                B5
+                <p>B5</p>
             </div>  
             <div class="card B col-6" id="B6">
-                B6
+                <p>B6</p>
             </div> 
             <div class="card B col-7" id="B7">
-                B7
+                <p>B7</p>
             </div> 
             <div class="card B col-8" id="B8">
-                B8
+                <p>B8</p>
             </div> 
             <div class="card C col-1" id="C1">
-                C1
+                <p>C1</p>
             </div>
             <div class="card C col-2" id="C2">
-                C2
+                <p>C2</p>
             </div>
             <div class="card C col-3" id="C3">
-                C3
+                <p>C3</p>
             </div>
             <div class="card C col-4" id="C4">
-                C4
+                <p>C4</p>
             </div>
             <div class="card C col-5" id="C5">
-                C5
+                <p>C5</p>
             </div>  
             <div class="card C col-6" id="C6">
-                C6
+                <p>C6</p>
             </div> 
             <div class="card C col-7" id="C7">
-                C7
+                <p>C7</p>
             </div> 
             <div class="card C col-8" id="C8">
-                C8
+                <p>C8</p>
             </div> 
         </div>
     </body>
     <script type="application/javascript">
+var cards = document.getElementsByClassName("card");
+for (let item of cards) {
+    item.onclick = function () {
+        item.style.background = calcColor(item);
+    }
+}
+
+function calcColor(el) {
+    const hslMap = {
+        '.A': 'hsl(199,60%,49%)',
+        '.B': 'hsl(356,60%,49%)',
+        '.C': 'hsl(52,100%,49%)',
+    }
+    let hue;
+    for (hue in hslMap) {
+        if (el.matches(hue)) {
+            break;
+        }
+    }
+    return hslMap[hue];
+}
     </script>
 </html>
