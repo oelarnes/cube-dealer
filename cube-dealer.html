@@ -13,7 +13,7 @@
         border-radius: 0.5vw;
     }
     .card p{
-        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-family:'Lucida Sans', Verdana, sans-serif;
         color: white;
         font-size: 20px;
         font-weight: bold;
@@ -65,6 +65,11 @@
     }
     .col-8{
         left: 86vw;
+    }
+    .on{
+        transition-property: background-color;
+        transition-duration: 5s;
+        transition-timing-function: ease;
     }
     </style>
     <body>
@@ -155,7 +160,12 @@
 var cards = document.getElementsByClassName("card");
 for (let item of cards) {
     item.onclick = function () {
+        item.classList.remove('on');
         item.style.background = calcColor(item);
+        setTimeout(() => {
+            item.classList.add('on');
+            item.style.background = 'lightgray';
+        })
     }
 }
 
@@ -165,13 +175,11 @@ function calcColor(el) {
         '.B': 'hsl(356,60%,49%)',
         '.C': 'hsl(52,100%,49%)',
     }
-    let row;
-    for (row in hslMap) {
+    for (let row in hslMap) {
         if (el.matches(row)) {
-            break;
+            return hslMap[row];
         }
     }
-    return hslMap[row];
 }
     </script>
 </html>
