@@ -165,13 +165,13 @@ function calcColor(el) {
         '.B': 'hsl(356,60%,49%)',
         '.C': 'hsl(52,100%,49%)',
     }
-    let hue;
-    for (hue in hslMap) {
-        if (el.matches(hue)) {
+    let row;
+    for (row in hslMap) {
+        if (el.matches(row)) {
             break;
         }
     }
-    return hslMap[hue];
+    return hslMap[row];
 }
     </script>
 </html>
